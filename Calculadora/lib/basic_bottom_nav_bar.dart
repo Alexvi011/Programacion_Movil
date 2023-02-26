@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:calculadora/calculadora.dart';
+import 'package:calculadora/texfield.dart';
+
+
 
 class BasicBottomNavBar extends StatefulWidget {
   const BasicBottomNavBar({Key? key}) : super(key: key);
+  //String texto2;
 
   @override
   _BasicBottomNavBarState createState() => _BasicBottomNavBarState();
@@ -12,16 +16,11 @@ class _BasicBottomNavBarState extends State<BasicBottomNavBar> {
   int _selectedIndex = 0;
 
   static const List<Widget> _pages = <Widget>[
-
-    Icon(
-      Icons.home,
-      size: 150,
+    Text(
+      "HOLA",
     ),
     Calculadora(),
-    Icon(
-      Icons.title,
-      size: 150,
-    ),
+    textField(),
     // Icon(
     //   Icons.chat,
     //   size: 150,

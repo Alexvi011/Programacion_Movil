@@ -3,33 +3,13 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-
-class Calculadora extends StatelessWidget {
+class Calculadora extends StatefulWidget {
   const Calculadora({Key? key}) : super(key: key);
 
-
-
-
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Primera Asignación',
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: const MyHomePage(),
-    );
-  }
+  _CalculadoraState createState() => _CalculadoraState();
 }
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-class _MyHomePageState extends State<MyHomePage> {
+class _CalculadoraState extends State<Calculadora> {
 
   Random rnd= Random();
   //String _palabra = "Botón Presionado";
@@ -92,6 +72,36 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _multiplicacion() {
+    setState(() {
+      _numero += "*";
+    });
+  }
+  void _division() {
+    setState(() {
+      _numero += "/";
+    });
+  }
+  void _suma() {
+    setState(() {
+      _numero += "+";
+    });
+  }
+  void _resta() {
+    setState(() {
+      _numero += "-";
+    });
+  }
+  void _punto() {
+    setState(() {
+      _numero += ".";
+    });
+  }
+  void _resultado() {
+    setState(() {
+      _numero += "= FIN ";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -145,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Column(
                   children:<FloatingActionButton> [
                     FloatingActionButton(
-                      onPressed:_uno,
+                      onPressed:_multiplicacion,
                       tooltip: 'Increment',
                       child: const Text("*"),backgroundColor: Colors.orange,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
@@ -194,7 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Column(
                   children:<FloatingActionButton> [
                     FloatingActionButton(
-                      onPressed:_uno,
+                      onPressed:_resta,
                       tooltip: 'Increment',
                       child: const Text("-"),backgroundColor: Colors.orange,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
@@ -244,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Column(
                   children:<FloatingActionButton> [
                     FloatingActionButton(
-                      onPressed:_uno,
+                      onPressed:_suma,
                       tooltip: 'Increment',
                       child: const Text("+"),backgroundColor: Colors.orange,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
@@ -261,7 +271,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Column(
                   children:<FloatingActionButton> [
                     FloatingActionButton(
-                      onPressed:_cuatro,
+                      onPressed:_division,
                       tooltip: 'Increment',
                       child: const Text("/"),backgroundColor: Colors.orange,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
@@ -283,7 +293,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Column(
                   children:<FloatingActionButton> [
                     FloatingActionButton(
-                      onPressed:_seis,
+                      onPressed:_punto,
                       tooltip: 'Increment',
                       child: const Text("."),backgroundColor: Colors.orange,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
@@ -294,7 +304,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Column(
                   children:<FloatingActionButton> [
                     FloatingActionButton(
-                      onPressed:_uno,
+                      onPressed:_resultado,
                       tooltip: 'Increment',
                       child: const Text("="),backgroundColor: Colors.orange,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
