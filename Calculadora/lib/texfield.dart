@@ -1,7 +1,7 @@
 import 'package:calculadora/basic_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-
+import 'package:calculadora/Mandar.dart';
 
 
 class textField extends StatefulWidget {
@@ -104,9 +104,7 @@ class _textFieldState extends State<textField>{
                 return 'Ingrese al area que pertenece';
               }else{
                 texto2 = value;
-                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-                  return new BasicBottomNavBar();
-                }));
+
               }
             },
             decoration: InputDecoration(
@@ -123,6 +121,9 @@ class _textFieldState extends State<textField>{
               color: Colors.blueAccent,
               textColor: Colors.white,
               onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+                  return new Mandar(texto1,texto2);
+                }));
                 // devolverá true si el formulario es válido, o falso si
                 // el formulario no es válido.
                 if (_formKey.currentState!.validate()) {
